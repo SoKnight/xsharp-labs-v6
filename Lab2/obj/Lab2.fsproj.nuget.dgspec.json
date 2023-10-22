@@ -1,0 +1,56 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\SoKnight\\Development\\RiderProjects\\fsharp-labs-v6\\Lab2\\Lab2.fsproj": {}
+  },
+  "projects": {
+    "C:\\Users\\SoKnight\\Development\\RiderProjects\\fsharp-labs-v6\\Lab2\\Lab2.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\SoKnight\\Development\\RiderProjects\\fsharp-labs-v6\\Lab2\\Lab2.fsproj",
+        "projectName": "Lab2",
+        "projectPath": "C:\\Users\\SoKnight\\Development\\RiderProjects\\fsharp-labs-v6\\Lab2\\Lab2.fsproj",
+        "packagesPath": "C:\\Users\\SoKnight\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SoKnight\\Development\\RiderProjects\\fsharp-labs-v6\\Lab2\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\SoKnight\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.402\\FSharp\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[7.0.400, )",
+              "generatePathProperty": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

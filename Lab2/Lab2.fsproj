@@ -5,7 +5,6 @@
 
     <WarnOn>3390;$(WarnOn)</WarnOn>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Include="Task1.fs" />
     <Compile Include="Task2.fs" />
