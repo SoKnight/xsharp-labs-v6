@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "a4vBadiKOYDQYCmKAZIm0XV2tiopUIkV3Ox+7la6KyYyITJmXMEer5qEhwA323r9Kxc8odQfARsblN7OOBFHug==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SoKnight\\Development\\RiderProjects\\fsharp-labs-v6\\Lab1\\Lab1.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SoKnight\\.nuget\\packages\\fsharp.core\\7.0.400\\fsharp.core.7.0.400.nupkg.sha512"
+  ],
+  "logs": []
+}
