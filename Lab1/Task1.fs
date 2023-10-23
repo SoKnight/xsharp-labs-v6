@@ -1,5 +1,7 @@
 ﻿module Task1
 
+open System
+
 let run =
     printfn "Задание 1:\nСформировать список из чисел, противоположных вводимым значениям.\n"
 
@@ -9,6 +11,12 @@ let run =
     if (userInput.Length = 0) then
         printfn "Результат: []"
     else
-        let result = [ for arg in userInput.Split(' ') do yield -int(arg); ]
+        let result = [ 
+            for arg in userInput.Split(' ') do 
+                match Int32.TryParse arg with
+                | true, number -> yield number
+                | _ -> ignore
+        ]
+
         printfn "Результат: %A" result
     0
