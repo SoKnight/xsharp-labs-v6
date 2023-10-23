@@ -8,18 +8,22 @@ let removeMinus (userInput: string) =
      else
          userInput
 
-let tryCountDigits (input: string): bool * int =
-    if (input.Length <> 0 && not (input.StartsWith "0")) then
-        let digits = [
-            for ch in input.ToCharArray() do
-                if (int(ch) >= 48 && int(ch) <= 57) then
-                    yield ch
-        ]
-                
-        if (digits.Length = input.Length) then
-            (true, digits.Length)
+let rec countNextDigit (input: string, count: int): bool * int =
+    let charCode = int(input[0])
+
+    if (charCode >= 48 && charCode <= 57) then
+        if (input.Length > 1) then
+            countNextDigit (input.Substring 1, count + 1)
         else
-            (false, 0)
+            (true, count)
+    else
+        (false, count)
+
+let tryCountDigits (input: string): bool * int =
+    if (input.Length <> 0 && (not (input.StartsWith "0") || input.Length = 1)) then
+        match countNextDigit (input, 1) with
+        | true, count -> (true, count)
+        | _ -> (false, 0)
     else
         (false, 0)
 
