@@ -12,9 +12,9 @@ let run =
         printfn "Результат: []"
     else
         let result = [ 
-            for arg in userInput.Split(' ') do 
-                match Int32.TryParse arg with
-                | true, number -> yield number
+            for arg in (userInput.Replace ('.', ',')).Split(' ') do 
+                match Double.TryParse arg with
+                | true, number -> yield -number
                 | _ -> ignore
         ]
 
