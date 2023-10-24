@@ -4,7 +4,7 @@ type Tree =
     | Node of string * List<Tree>
     | Empty
 
-// проходит по контенту и веткам дерева, форматируя его в читабельный вид
+// pretty-printer для деревьев :o
 let rec walkTreeToPrint (prefix: string) (tree: Tree): string =
     match tree with
     | Node (data: string, children: List<Tree>) ->
@@ -17,6 +17,10 @@ let rec walkTreeToPrint (prefix: string) (tree: Tree): string =
         else
             sprintf "%s%s" prefix data
     | Empty -> ""
+
+// упрощённая функция для печати дерева в красивом виде
+let printTree (tree: Tree): string =
+    walkTreeToPrint "" tree
 
 // изменяет строку так, как сказано в задании ('a' -> 'b'...)
 let modifyDataString (data: string): string =
@@ -57,6 +61,6 @@ let run =
             ])
         ])
 
-    printfn "[Исходное дерево]\n%s" (walkTreeToPrint "" tree)
-    printfn "\n[Результат]\n%s" (walkTreeToPrint "" (modifyTree tree))
+    printfn "[Исходное дерево]\n%s" (printTree tree)
+    printfn "\n[Результат]\n%s" (printTree (modifyTree tree))
     0
