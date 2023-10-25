@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Include="Task1.fs" />
+    <Compile Include="Task2.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
