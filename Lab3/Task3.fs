@@ -10,11 +10,14 @@ let run =
 
     if (Directory.Exists(userInput)) then
         let fileNameOffset = userInput.Length + 1;
-        let files = List.map (fun (entry: string) -> entry.Substring(fileNameOffset)) (Array.toList (Directory.GetFiles(userInput)));
+        let files = Directory.GetFiles(userInput) 
+                    |> Array.toSeq 
+                    |> Seq.map (fun (entry: string) -> entry.Substring(fileNameOffset))
+                    |> Seq.sortBy (fun (name: string) -> name.ToLower());
 
-        if (files.Length <> 0) then
-            let sorted = List.sortBy (fun (name: string) -> name.ToLower()) files;
-            printfn "Первый по алфавиту файл в каталоге: '%s'" sorted[0]
+        let enumerator = files.GetEnumerator();
+        if (enumerator.MoveNext()) then
+            printfn "Первый по алфавиту файл в каталоге: '%s'" enumerator.Current
         else
             printfn "Указанная директория не содержит файлов!"
     else
