@@ -9,7 +9,7 @@ let run =
     let userInput = System.Console.ReadLine()
 
     if (Directory.Exists(userInput)) then
-        let fileNameOffset = userInput.Length + 1;
+        let fileNameOffset = userInput.Length;
         let files = Directory.GetFiles(userInput) 
                     |> Array.toSeq 
                     |> Seq.map (fun (entry: string) -> entry.Substring(fileNameOffset))

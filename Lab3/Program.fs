@@ -5,4 +5,4 @@
 // 3 задание - Task3
 
 [<EntryPoint>]
-let main argv = Task1.run
+let main argv = Task3.run

@@ -11,6 +11,6 @@ let run =
     if (userInput.Length = 0) then
         printfn "Сумма длин строк: 0"
     else
-        let words = [ for str in userInput.Split(' ') -> str ]
+        let words = seq { for str in userInput.Split(' ') -> str }
         printfn "Сумма длин строк: %i" (sumLengths words)
     0

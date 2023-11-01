@@ -14,9 +14,9 @@ let rec walkTreeToPrint (prefix: string) (tree: Tree): string =
         let childContent = mappedChildren |> String.concat "\n"
 
         if (childContent.Length <> 0) then
-            sprintf "%s%s:\n%s" prefix data childContent
+            sprintf "%s'%s':\n%s" prefix data childContent
         else
-            sprintf "%s%s" prefix data
+            sprintf "%s'%s'" prefix data
     | Empty -> ""
 
 // упрощённая функция для печати дерева в красивом виде
@@ -42,20 +42,23 @@ let rec findSuitableNodes (tree: Tree): List<Tree> =
         | Node(a, left: Tree, right: Tree) -> [left; right] |> List.fold (fun acc item -> findSuitableNodes item |> List.append acc) []
         | Empty -> []
 
-// извлекает данные из узла
-let extractData (tree: Tree): string =
-    match tree with
-    | Node(data: string, l, r) -> data
-    | Empty -> ""
-
 // форматирует один из найденных узлов
 let formatFoundNode (tree: Tree): string =
     match tree with
-    | Node(data: string, left: Tree, right: Tree) -> sprintf "'%s' (left: '%s', right: '%s')" data (extractData left) (extractData right)
+    | Node(data: string, left: Tree, right: Tree) -> sprintf "'%s'" data
     | Empty -> ""
 
 let run =
     printfn "Задание 2:\nСформировать список из узлов с двумя листьями.\nУзел является листом, если у него нет ни левого, ни правого поддерева.\n"
+
+    //let tree: Tree = 
+    //    Node("root only", Empty, Empty)
+
+    //let tree: Tree =
+    //    Node("tree root",
+    //        Node("left leaf", Empty, Empty),
+    //        Node("right leaf", Empty, Empty)
+    //    )
 
     let tree: Tree =
         Node("root", 

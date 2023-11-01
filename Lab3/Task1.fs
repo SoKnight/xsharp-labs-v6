@@ -9,11 +9,11 @@ let rec removeExtraSpaces (input: string): string =
         input
 
 let findMax number =
-    let digits = [
+    let digits = seq {
         for ch in string(number).ToCharArray() do
             if (int(ch) >= 48 && int(ch) <= 57) then
                 yield int(string(ch))
-    ]
+    }
     
     Seq.max(digits)
 
@@ -26,17 +26,15 @@ let run =
     if (userInput.Length = 0) then
         printfn "Результат: []"
     else
-        let rawParts = removeExtraSpaces(userInput.Trim()).Split(' ')
-        let numbers = [ 
+        let rawParts = removeExtraSpaces(userInput.Trim()).Split(' ') |> Array.toSeq
+
+        let numbers = seq {
             for arg in rawParts do
                 match Int64.TryParse arg with
                 | true, number when number > 0 -> yield number
                 | _ -> printfn "'%s' не является натуральным числом!" arg
-        ]
-
-        if (rawParts.Length = numbers.Length) then
-            let result = Seq.map ( findMax ) numbers
-            printfn "Результат: %A" (Seq.toList result)
-        else
-            printfn "Введённое значение не является перечислением натуральных чисел!"
+        }
+        
+        let result = numbers |> Seq.map findMax
+        printfn "Результат: %A" (Seq.toList result)
     0

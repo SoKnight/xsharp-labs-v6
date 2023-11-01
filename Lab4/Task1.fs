@@ -13,9 +13,9 @@ let rec walkTreeToPrint (prefix: string) (tree: Tree): string =
         let childContent = mappedChildren |> String.concat "\n"
 
         if (childContent.Length <> 0) then
-            sprintf "%s%s:\n%s" prefix data childContent
+            sprintf "%s'%s':\n%s" prefix data childContent
         else
-            sprintf "%s%s" prefix data
+            sprintf "%s'%s'" prefix data
     | Empty -> ""
 
 // упрощённая функция для печати дерева в красивом виде
@@ -40,6 +40,20 @@ let rec modifyTree (tree: Tree): Tree =
 
 let run =
     printfn "Задание 1:\nДерево содержит строки.\nЗаменить в каждой строке каждый символ на следующий по порядку.\n"
+
+    //let tree: Tree =
+    //    Node("one node", [])
+
+    //let tree: Tree =
+    //    Node("1st", [
+    //        Node("2nd", [
+    //            Node("3rd", [
+    //                Node("4th", [
+    //                    Node("5th", [])
+    //                ])
+    //            ])
+    //        ])
+    //    ])
 
     let tree: Tree = 
         Node("inventory", [
