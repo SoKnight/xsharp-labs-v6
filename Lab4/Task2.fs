@@ -1,9 +1,40 @@
 ﻿module Task2
 
+open System
+
 // бинарное дерево
 type Tree =
     | Node of string * Tree * Tree
     | Empty
+
+let random = Random()
+
+// генерирует случайную строку в виде последовательности цифр
+let generateRandomStr = 
+    let chars = "0123456789"
+    let charsLen = chars.Length
+
+    fun len -> 
+        let randomChars = [|for i in 0..len -> chars.[random.Next(charsLen)]|]
+        new String(randomChars)
+
+// генерирует бинарное дерево со случайным набором дочерних узлов
+let rec generateTree (data: string, childChance: double): Tree =
+    if (random.NextDouble() < childChance) then
+        Node(data, 
+            generateTree(generateRandomStr(5) |> sprintf "child-%s", childChance * 0.75),
+            generateTree(generateRandomStr(5) |> sprintf "child-%s", childChance * 0.75)
+        )
+    else
+        let children = [
+            for i in 1..2 do
+                if (random.NextDouble() < childChance) then
+                    yield generateTree(generateRandomStr(5) |> sprintf "child-%s", childChance * 0.75);
+                else
+                    yield Empty
+        ]
+
+        Node(data, children[0], children[1]);
 
 // pretty-printer для деревьев :o
 let rec walkTreeToPrint (prefix: string) (tree: Tree): string =
@@ -60,26 +91,29 @@ let run =
     //        Node("right leaf", Empty, Empty)
     //    )
 
+    //let tree: Tree =
+    //    Node("root", 
+    //        Node("node#1",
+    //            Node("leaf#1", Empty, Empty),
+    //            Node("leaf#2", Empty, Empty)
+    //        ),
+    //        Node("node#2",
+    //            Node("node#3", 
+    //                Node("leaf#3", Empty, Empty),
+    //                Node("node#4",
+    //                    Node("leaf#4", Empty, Empty),
+    //                    Node("leaf#5", Empty, Empty)
+    //                )
+    //            ),
+    //            Node("node#5", 
+    //                Node("leaf#6", Empty, Empty),
+    //                Empty
+    //            )
+    //        )
+    //    )
+
     let tree: Tree =
-        Node("root", 
-            Node("node#1",
-                Node("leaf#1", Empty, Empty),
-                Node("leaf#2", Empty, Empty)
-            ),
-            Node("node#2",
-                Node("node#3", 
-                    Node("leaf#3", Empty, Empty),
-                    Node("node#4",
-                        Node("leaf#4", Empty, Empty),
-                        Node("leaf#5", Empty, Empty)
-                    )
-                ),
-                Node("node#5", 
-                    Node("leaf#6", Empty, Empty),
-                    Empty
-                )
-            )
-        )
+        generateTree("root", 0.6)
 
     printfn "[Исходное дерево]\n%s\n" (printTree tree)
 
