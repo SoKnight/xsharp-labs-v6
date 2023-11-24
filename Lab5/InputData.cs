@@ -17,7 +17,7 @@
                     ConsoleColor tmp = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Введенные данные имеют неверный формат!");
-                    Console.Write("Укажите целое число: ");
+                    Console.WriteLine("Укажите целое число.");
                     Console.ForegroundColor = tmp;
                 }
             } while (!success);
@@ -40,7 +40,7 @@
                     ConsoleColor tmp = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Введенные данные имеют неверный формат!");
-                    Console.Write("Укажите вещественное число: ");
+                    Console.WriteLine("Укажите вещественное число.");
                     Console.ForegroundColor = tmp;
                 }
             } while (!success);

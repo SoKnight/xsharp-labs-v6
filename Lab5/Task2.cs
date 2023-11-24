@@ -7,12 +7,12 @@
 namespace Lab5
 {
     // класс, описывающий квадратное уравнение в виде набора коэффициентов
-    public class QuadraticEquation
+    public class QuadraticEquation2
     {
         private readonly double a, b, c;
 
         // конструктор со всеми коэффициентами
-        public QuadraticEquation(double a, double b, double c)
+        public QuadraticEquation2(double a, double b, double c)
         {
             this.a = a;
             this.b = b;
@@ -59,7 +59,7 @@ namespace Lab5
             double c = InputData.RequestDouble("Введите свободный коэффициент: ");
             Console.WriteLine();
 
-            QuadraticEquation equation = new QuadraticEquation(a, b, c);
+            QuadraticEquation2 equation = new QuadraticEquation2(a, b, c);
             double[] roots = equation.SolveEquation();
 
             switch (roots.Length)
