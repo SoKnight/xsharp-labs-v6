@@ -108,7 +108,7 @@ namespace Lab5
 
     internal class Task1
     {
-        static void Main(string[] args)
+        public static void Run()
         {
             // --- создание объектов статистики двумя способами
 
