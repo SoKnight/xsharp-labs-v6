@@ -113,51 +113,51 @@ namespace Lab5
             // --- создание объектов статистики двумя способами
 
             Statistics stats1 = new Statistics(0, 0, 0);
-            Console.WriteLine("Пустая статистика: " + stats1);
+            Console.WriteLine($"Пустая статистика: {stats1}");
 
             Statistics stats2 = new Statistics(1, 2, 3);
-            Console.WriteLine("Непустая статистика: " + stats2);
+            Console.WriteLine($"Непустая статистика: {stats2}");
 
             Statistics copyOfStats2 = new Statistics(stats2);
-            Console.WriteLine("Копия непустой статистики: " + copyOfStats2);
+            Console.WriteLine($"Копия непустой статистики: {copyOfStats2}");
 
             Console.WriteLine();
 
             // --- минимальная из последних цифр
 
-            Console.WriteLine("МПЦ для статистики '" + stats1 + "': " + stats1.ComputeMinLastDigit());
-            Console.WriteLine("МПЦ для статистики '" + stats2 + "': " + stats2.ComputeMinLastDigit());
+            Console.WriteLine($"МПЦ для статистики '{stats1}': {stats1.ComputeMinLastDigit()}");
+            Console.WriteLine($"МПЦ для статистики '{stats2}': {stats2.ComputeMinLastDigit()}");
 
             Statistics stats3 = new Statistics(22938, 34837, 1093);
-            Console.WriteLine("МПЦ для статистики '" + stats3 + "': " + stats3.ComputeMinLastDigit());
+            Console.WriteLine($"МПЦ для статистики '{stats3}': {stats3.ComputeMinLastDigit()}");
 
             Statistics stats4 = new Statistics(2323, 12, 23);
-            Console.WriteLine("МПЦ для статистики '" + stats4 + "': " + stats4.ComputeMinLastDigit());
+            Console.WriteLine($"МПЦ для статистики '{stats4}': {stats4.ComputeMinLastDigit()}");
 
             Statistics stats5 = new Statistics(87362, 32, 196);
-            Console.WriteLine("МПЦ для статистики '" + stats5 + "': " + stats5.ComputeMinLastDigit());
+            Console.WriteLine($"МПЦ для статистики '{stats5}': {stats5.ComputeMinLastDigit()}");
 
             Console.WriteLine();
 
             // --- создание объектов статистики сессии
 
             SessionStatistics sessionStats = new SessionStatistics();
-            Console.WriteLine("Статистика сессии: " + sessionStats);
-            Console.WriteLine("Закрыта ли сессия: " + (sessionStats.IsSessionClosed() ? "Да" : "Нет"));
+            Console.WriteLine($"Статистика сессии: {sessionStats}");
+            Console.WriteLine($"Закрыта ли сессия: {(sessionStats.IsSessionClosed() ? "Да" : "Нет")}");
 
             Console.WriteLine();
 
             // --- проверка методов работы со статистикой сессии
 
             sessionStats.IncreaseKillsCounter();
-            Console.WriteLine("После увеличения счётчика убийств: " + sessionStats);
+            Console.WriteLine($"После увеличения счётчика убийств: {sessionStats}");
 
             sessionStats.IncreaseDeathsCounter();
-            Console.WriteLine("После увеличения счётчика смертей: " + sessionStats);
+            Console.WriteLine($"После увеличения счётчика смертей: {sessionStats}");
 
             sessionStats.CloseSession();
-            Console.WriteLine("После закрытия: " + sessionStats);
-            Console.WriteLine("Закрыта ли сессия: " + (sessionStats.IsSessionClosed() ? "Да" : "Нет"));
+            Console.WriteLine($"После закрытия: {sessionStats}");
+            Console.WriteLine($"Закрыта ли сессия: {(sessionStats.IsSessionClosed() ? "Да" : "Нет")}");
         }
     }
 }
