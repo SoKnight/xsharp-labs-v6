@@ -1,8 +1,8 @@
-// Бинарные файлы, содержащие числовые данные.
-// Исходный файл заполнить случайными данными.
-// Заполнение организовать отдельным методом.
+п»ї// Р‘РёРЅР°СЂРЅС‹Рµ С„Р°Р№Р»С‹, СЃРѕРґРµСЂР¶Р°С‰РёРµ С‡РёСЃР»РѕРІС‹Рµ РґР°РЅРЅС‹Рµ.
+// РСЃС…РѕРґРЅС‹Р№ С„Р°Р№Р» Р·Р°РїРѕР»РЅРёС‚СЊ СЃР»СѓС‡Р°Р№РЅС‹РјРё РґР°РЅРЅС‹РјРё.
+// Р—Р°РїРѕР»РЅРµРЅРёРµ РѕСЂРіР°РЅРёР·РѕРІР°С‚СЊ РѕС‚РґРµР»СЊРЅС‹Рј РјРµС‚РѕРґРѕРј.
 
-// Переписать в другой файл последовательного доступа те элементы, которые кратны k.
+// РџРµСЂРµРїРёСЃР°С‚СЊ РІ РґСЂСѓРіРѕР№ С„Р°Р№Р» РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРіРѕ РґРѕСЃС‚СѓРїР° С‚Рµ СЌР»РµРјРµРЅС‚С‹, РєРѕС‚РѕСЂС‹Рµ РєСЂР°С‚РЅС‹ k.
 
 namespace Lab6
 {
@@ -13,26 +13,26 @@ namespace Lab6
 
         public static void Run()
         {
-            // --- ввод данных ---
+            // --- РІРІРѕРґ РґР°РЅРЅС‹С… ---
 
-            Console.WriteLine("Вариант 6.");
-            Console.WriteLine("Задача: Переписать в другой файл последовательного доступа те элементы, которые кратны k.");
+            Console.WriteLine("Р’Р°СЂРёР°РЅС‚ 6.");
+            Console.WriteLine("Р—Р°РґР°С‡Р°: РџРµСЂРµРїРёСЃР°С‚СЊ РІ РґСЂСѓРіРѕР№ С„Р°Р№Р» РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕРіРѕ РґРѕСЃС‚СѓРїР° С‚Рµ СЌР»РµРјРµРЅС‚С‹, РєРѕС‚РѕСЂС‹Рµ РєСЂР°С‚РЅС‹ k.");
             Console.WriteLine();
 
-            int count = UserInput.RequestPositiveInteger("Введите количество исходных чисел: ");
-            int k = UserInput.RequestNonZeroInteger("Введите значение 'k': ");
+            int count = UserInput.RequestPositiveInteger("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РёСЃС…РѕРґРЅС‹С… С‡РёСЃРµР»: ");
+            int k = UserInput.RequestNonZeroInteger("Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ 'k': ");
             Console.WriteLine();
 
-            // --- генерация исходного файла со случайными числами ---
+            // --- РіРµРЅРµСЂР°С†РёСЏ РёСЃС…РѕРґРЅРѕРіРѕ С„Р°Р№Р»Р° СЃРѕ СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё ---
 
             int[] writtenNumbers = new int[count];
             if (!GenerateRandomNumbersFile(count, 1000, writtenNumbers))
                 return;
 
-            Console.WriteLine($"Сгенерированные числа: [{String.Join(", ", writtenNumbers)}]");
+            Console.WriteLine($"РЎРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅС‹Рµ С‡РёСЃР»Р°: [{String.Join(", ", writtenNumbers)}]");
             Console.WriteLine();
 
-            // --- решение задачи ---
+            // --- СЂРµС€РµРЅРёРµ Р·Р°РґР°С‡Рё ---
 
             int countOfWritten;
             if (!SolveTask(k, writtenNumbers, out countOfWritten))
@@ -40,12 +40,12 @@ namespace Lab6
 
             if (countOfWritten == 0)
             {
-                Console.WriteLine($"Числа, кратные {k}, отсутствуют.");
+                Console.WriteLine($"Р§РёСЃР»Р°, РєСЂР°С‚РЅС‹Рµ {k}, РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚.");
             }
             else
             {
                 Array.Resize(ref writtenNumbers, countOfWritten);
-                Console.WriteLine($"Числа, кратные {k}: [{String.Join(", ", writtenNumbers)}]");
+                Console.WriteLine($"Р§РёСЃР»Р°, РєСЂР°С‚РЅС‹Рµ {k}: [{String.Join(", ", writtenNumbers)}]");
             }
         }
 
@@ -79,7 +79,7 @@ namespace Lab6
             {
                 ConsoleColor tmp = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Ошибка файловой системы при попытке решить задачу!");
+                Console.WriteLine("РћС€РёР±РєР° С„Р°Р№Р»РѕРІРѕР№ СЃРёСЃС‚РµРјС‹ РїСЂРё РїРѕРїС‹С‚РєРµ СЂРµС€РёС‚СЊ Р·Р°РґР°С‡Сѓ!");
                 Console.WriteLine(ex.ToString());
                 Console.ForegroundColor = tmp;
                 return false;
@@ -108,7 +108,7 @@ namespace Lab6
             {
                 ConsoleColor tmp = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Ошибка при создании исходного файла!");
+                Console.WriteLine("РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё РёСЃС…РѕРґРЅРѕРіРѕ С„Р°Р№Р»Р°!");
                 Console.WriteLine(ex.ToString());
                 Console.ForegroundColor = tmp;
                 return false;
