@@ -155,6 +155,8 @@ namespace Lab5
             sessionStats.IncreaseDeathsCounter();
             Console.WriteLine($"После увеличения счётчика смертей: {sessionStats}");
 
+            Thread.Sleep(2000);
+
             sessionStats.CloseSession();
             Console.WriteLine($"После закрытия: {sessionStats}");
             Console.WriteLine($"Закрыта ли сессия: {(sessionStats.IsSessionClosed() ? "Да" : "Нет")}");

@@ -35,6 +35,18 @@ namespace Lab5
         // метод для решения уравнения (по заданию)
         public double[] SolveEquation()
         {
+            if (a == 0)
+            {
+                if (b == 0)
+                    return c == 0 ? new double[] { Double.NaN } : new double[0];
+                else
+                    return c == 0 ? new double[] { 0 } : new double[] { -c / b };
+            }
+            else if (b == 0 && c == 0)
+            {
+                return new double[] { 0 };
+            }
+
             double discriminant = ComputeDiscriminant();
 
             if (discriminant < 0.0)
@@ -88,7 +100,8 @@ namespace Lab5
         // bool (явная) – результатом является true, если корни существуют и false в противном случае
         public static explicit operator bool(QuadraticEquation3 eq)
         {
-            return eq.SolveEquation().Length != 0;
+            double[] roots = eq.SolveEquation();
+            return roots.Length != 0 && !Double.IsNaN(roots[0]);
         }
 
         // == QuadraticEquation eq1, QuadraticEquation eq2 — уравнения равны, если равны их коэффициенты
@@ -123,16 +136,16 @@ namespace Lab5
             Console.WriteLine();
 
             QuadraticEquation3 equation2 = new QuadraticEquation3(a, b, c);
-            Console.WriteLine($"Исходное уравнение: {equation2}");
+            Console.WriteLine($"Исходное уравнение #2: {equation2}");
             Console.WriteLine();
 
             Console.WriteLine($"С увеличенными коэффициентами: {++equation2}");
             Console.WriteLine($"С уменьшенными коэффициентами: {--equation2}");
             Console.WriteLine();
 
-            double implicitCast = equation2;
-            Console.WriteLine($"Неявное приведение: {implicitCast}");
-            Console.WriteLine($"Явное приведение: {(bool) equation2}");
+            double implicitCast = equation1;
+            Console.WriteLine($"Неявное приведение уравнения #1: {implicitCast}");
+            Console.WriteLine($"Явное приведение уравнения #2: {(bool) equation2}");
             Console.WriteLine();
 
             Console.WriteLine($"Данные уравнения равны: {equation1 == equation2}");

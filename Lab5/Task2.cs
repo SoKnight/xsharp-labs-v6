@@ -19,10 +19,28 @@ namespace Lab5
             this.c = c;
         }
 
+        // метод для вычисления дискриминанта
+        public double ComputeDiscriminant()
+        {
+            return (b * b) - (4 * a * c);
+        }
+
         // метод для решения уравнения (по заданию)
         public double[] SolveEquation()
         {
-            double discriminant = (b * b) - (4 * a * c);
+            if (a == 0)
+            {
+                if (b == 0)
+                    return c == 0 ? new double[] { Double.NaN } : new double[0];
+                else
+                    return c == 0 ? new double[] { 0 } : new double[] { -c / b };
+            }
+            else if (b == 0 && c == 0)
+            {
+                return new double[] { 0 };
+            }
+
+            double discriminant = ComputeDiscriminant();
 
             if (discriminant < 0.0)
                 return new double[0];
@@ -68,7 +86,10 @@ namespace Lab5
                     Console.WriteLine("Данное уравнение не имеет решений!");
                     break;
                 case 1:
-                    Console.WriteLine($"Уравнение имеет одно решение: {roots[0]}");
+                    if (Double.IsNaN(roots[0]))
+                        Console.WriteLine($"Уравнение верно для любого X.");
+                    else
+                        Console.WriteLine($"Уравнение имеет одно решение: {roots[0]}");
                     break;
                 case 2:
                     Console.WriteLine($"Уравнение имеет два решения: {roots[0]} и {roots[1]}");
