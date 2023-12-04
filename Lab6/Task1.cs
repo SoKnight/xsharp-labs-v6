@@ -13,38 +13,61 @@ namespace Lab6
 
         public static void Run()
         {
+            // --- ввод данных ---
+
             Console.WriteLine("Вариант 6.");
             Console.WriteLine("Задача: Переписать в другой файл последовательного доступа те элементы, которые кратны k.");
             Console.WriteLine();
 
-            int count = InputData.RequestPositiveInteger("Введите количество исходных чисел: ");
-            int k = InputData.RequestNonZeroInteger("Введите значение 'k': ");
-
-            if (!GenerateRandomNumbersFile(count, 1000))
-                return;
-
-            if (!SolveTask(k))
-                return;
-
+            int count = UserInput.RequestPositiveInteger("Введите количество исходных чисел: ");
+            int k = UserInput.RequestNonZeroInteger("Введите значение 'k': ");
             Console.WriteLine();
-            Console.WriteLine("Успешно!");
+
+            // --- генерация исходного файла со случайными числами ---
+
+            int[] writtenNumbers = new int[count];
+            if (!GenerateRandomNumbersFile(count, 1000, writtenNumbers))
+                return;
+
+            Console.WriteLine($"Сгенерированные числа: [{String.Join(", ", writtenNumbers)}]");
+            Console.WriteLine();
+
+            // --- решение задачи ---
+
+            int countOfWritten;
+            if (!SolveTask(k, writtenNumbers, out countOfWritten))
+                return;
+
+            if (countOfWritten == 0)
+            {
+                Console.WriteLine($"Числа, кратные {k}, отсутствуют.");
+            }
+            else
+            {
+                Array.Resize(ref writtenNumbers, countOfWritten);
+                Console.WriteLine($"Числа, кратные {k}: [{String.Join(", ", writtenNumbers)}]");
+            }
         }
 
-        private static bool SolveTask(int k)
+        private static bool SolveTask(int k, int[] writtenNumbers, out int countOfWritten)
         {
+            countOfWritten = 0;
+
             try
             {
                 BinaryReader reader = new BinaryReader(File.Open(INPUT_FILE_NAME, FileMode.Open));
                 BinaryWriter writer = new BinaryWriter(File.Open(OUTPUT_FILE_NAME, FileMode.Create));
 
+                int writtenNumbersIndex = 0;
                 while (reader.BaseStream.Position < reader.BaseStream.Length)
                 {
                     int number = reader.ReadInt32();
 
                     if (number % k == 0)
                     {
-                        Console.WriteLine(number);
                         writer.Write(number);
+                        writtenNumbers[writtenNumbersIndex++] = number;
+                        countOfWritten++;
                     }
                 }
 
@@ -63,7 +86,7 @@ namespace Lab6
             }
         }
 
-        private static bool GenerateRandomNumbersFile(int count, int maxBound)
+        private static bool GenerateRandomNumbersFile(int count, int maxBound, int[] writtenNumbers)
         {
             try
             {
@@ -71,7 +94,11 @@ namespace Lab6
                 Random random = new Random();
 
                 for (int i = 0; i < count; i++)
-                    writer.Write(random.Next(maxBound));
+                {
+                    int number = random.Next(maxBound);
+                    writer.Write(number);
+                    writtenNumbers[i] = number;
+                }
 
                 writer.Flush();
                 writer.Close();

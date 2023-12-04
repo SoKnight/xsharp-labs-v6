@@ -1,6 +1,6 @@
 ﻿namespace Lab6
 {
-    internal class InputData
+    internal class UserInput
     {
         // запрос ввода целого числа с проверкой
         public static int RequestInteger(string prompt)                                                                                        
@@ -34,8 +34,8 @@
             do
             {
                 Console.Write(prompt);
-                success = int.TryParse(Console.ReadLine(), out value);
-                if (!success || value == 0)
+                success = int.TryParse(Console.ReadLine(), out value) && value != 0;
+                if (!success)
                 {
                     ConsoleColor tmp = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -57,8 +57,8 @@
             do
             {
                 Console.Write(prompt);
-                success = int.TryParse(Console.ReadLine(), out value);
-                if (!success || value <= 0)
+                success = int.TryParse(Console.ReadLine(), out value) && value > 0;
+                if (!success)
                 {
                     ConsoleColor tmp = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Red;
