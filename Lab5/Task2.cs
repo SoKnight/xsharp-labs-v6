@@ -9,7 +9,13 @@ namespace Lab5
     // класс, описывающий квадратное уравнение в виде набора коэффициентов
     public class QuadraticEquation2
     {
+        // поля (коэффициенты уравнения)
         private readonly double a, b, c;
+
+        // свойства
+        public double A { get { return a; } }
+        public double B { get { return b; } }
+        public double C { get { return c; } }
 
         // конструктор со всеми коэффициентами
         public QuadraticEquation2(double a, double b, double c)
