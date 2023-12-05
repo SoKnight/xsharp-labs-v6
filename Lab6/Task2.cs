@@ -34,6 +34,9 @@ namespace Lab6
             if (!GenerateRandomNumbersFile(count, 1000))
                 return;
 
+            Console.WriteLine("Файл со случайными числами сохранён по пути:\n" + Path.GetFullPath(FILE_NAME));
+            Console.WriteLine();
+
             // --- создание 2D матрицы ---
 
             int[][] matrix2D = new int[n][];
@@ -47,12 +50,56 @@ namespace Lab6
 
             Console.WriteLine(" ИСХОДНАЯ МАТРИЦА:");
             Console.WriteLine(Matrix2DToString(matrix2D, n));
+
+            // --- решение задачи ---
+
+            int leastSum = 0;
+            int leastSumColumnIndex = FindLeastSumColumnIndex(matrix2D, n, out leastSum);
+            Console.WriteLine($"Столбец #{leastSumColumnIndex+1} имеет минимальную сумму элементов: {leastSum}");
+            Console.WriteLine();
+
+            SolveTask(matrix2D, n, leastSumColumnIndex);
+
+            Console.WriteLine(" РЕЗУЛЬТАТ:");
+            Console.WriteLine(Matrix2DToString(matrix2D, n));
         }
 
-        private static bool SolveTask()
+        private static void SolveTask(int[][] matrix2D, int n, int leastSumColumnIndex)
         {
-            // TODO code
-            return true;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (j == leastSumColumnIndex)
+                        continue;
+
+                    matrix2D[i][j] = matrix2D[i][leastSumColumnIndex];
+                }
+            }
+        }
+
+        private static int FindLeastSumColumnIndex(int[][] matrix2D, int n, out int leastSum)
+        {
+            leastSum = int.MaxValue;
+            int columnIndex = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                int currentSum = 0;
+
+                for (int j = 0; j < n; j++)
+                {
+                    currentSum += matrix2D[j][i];
+                }
+
+                if (currentSum <= leastSum)
+                {
+                    leastSum = currentSum;
+                    columnIndex = i;
+                }
+            }
+
+            return columnIndex;
         }
 
         private static bool ReadNumbersToMatrix2D(int[][] matrix2D, int n)

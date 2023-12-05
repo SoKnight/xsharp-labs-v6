@@ -73,6 +73,9 @@ namespace Lab6
 
                 reader.Close();
                 writer.Close();
+
+                Console.WriteLine("Файл с результатами сохранён по пути:\n" + Path.GetFullPath(OUTPUT_FILE_NAME));
+                Console.WriteLine();
                 return true;
             }
             catch (Exception ex)
@@ -102,6 +105,9 @@ namespace Lab6
 
                 writer.Flush();
                 writer.Close();
+
+                Console.WriteLine("Файл со случайными числами сохранён по пути:\n" + Path.GetFullPath(INPUT_FILE_NAME));
+                Console.WriteLine();
                 return true;
             }
             catch (Exception ex)
