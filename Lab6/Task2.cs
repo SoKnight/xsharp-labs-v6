@@ -34,9 +34,6 @@ namespace Lab6
             if (!GenerateRandomNumbersFile(count, 1000))
                 return;
 
-            Console.WriteLine("Файл со случайными числами сохранён по пути:\n" + Path.GetFullPath(FILE_NAME));
-            Console.WriteLine();
-
             // --- создание 2D матрицы ---
 
             int[][] matrix2D = new int[n][];
@@ -147,6 +144,9 @@ namespace Lab6
 
                 writer.Flush();
                 writer.Close();
+
+                Console.WriteLine("Файл со случайными числами сохранён по пути:\n" + Path.GetFullPath(FILE_NAME));
+                Console.WriteLine();
                 return true;
             }
             catch (Exception ex)
