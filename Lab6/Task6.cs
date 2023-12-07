@@ -4,7 +4,6 @@
 // Переписать в другой файл строки, в которых нет русских букв.
 
 using System.Diagnostics;
-using System.Text;
 
 namespace Lab6
 {

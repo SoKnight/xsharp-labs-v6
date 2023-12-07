@@ -3,8 +3,6 @@
 
 // Вычислить произведение элементов, которые кратны заданному числу k.
 
-using System.Diagnostics;
-
 namespace Lab6
 {
     internal class Task5
