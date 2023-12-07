@@ -44,7 +44,7 @@ namespace Lab6
 
     internal class Task3
     {
-        private static readonly string FILE_NAME = "toyz.bin";
+        private static readonly string FILE_NAME = "task3_toyz.bin";
 
         public static void Run()
         {

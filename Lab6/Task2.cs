@@ -12,7 +12,7 @@ namespace Lab6
 {
     internal class Task2
     {
-        private static readonly string FILE_NAME = "numbers.bin";
+        private static readonly string FILE_NAME = "task2_numbers.bin";
 
         public static void Run()
         {

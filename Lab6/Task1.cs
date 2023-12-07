@@ -8,8 +8,8 @@ namespace Lab6
 {
     internal class Task1
     {
-        private static readonly string INPUT_FILE_NAME = "input.bin";
-        private static readonly string OUTPUT_FILE_NAME = "output.bin";
+        private static readonly string INPUT_FILE_NAME = "task1_input.bin";
+        private static readonly string OUTPUT_FILE_NAME = "task1_output.bin";
 
         public static void Run()
         {
