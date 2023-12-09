@@ -22,7 +22,7 @@ namespace Lab7
             HashSet<string> compositions = InputMusicCompositions();
             Console.WriteLine();
 
-            HashSet<MusicLover> musicLovers = InputMusicLovers();
+            HashSet<MusicLover> musicLovers = InputMusicLovers(compositions);
             Console.WriteLine();
 
             // --- решение задачи ---
@@ -73,7 +73,7 @@ namespace Lab7
             return result;
         }
 
-        private static HashSet<MusicLover> InputMusicLovers()
+        private static HashSet<MusicLover> InputMusicLovers(HashSet<string> compositions)
         {
             Console.WriteLine("Начинайте вводить информацию о меломанах ниже...");
             Console.WriteLine("Формат: '<произведение1>;; <произведение2>;; ...;; <произведениеN>'");
@@ -94,17 +94,51 @@ namespace Lab7
                         break;
                 }
 
-                MusicLover lover = new MusicLover();
-                foreach (string composition in line.Split(";; "))
-                    if (composition.Length != 0)
-                        lover.Add(composition);
-
-                if (lover.Count != 0)
+                MusicLover? lover = ParseMusicLover(line, compositions);
+                if (lover != null)
+                {
                     result.Add(lover);
+                }
             }
 
             Console.WriteLine($"Добавлено меломанов: {result.Count}");
             return result;
+        }
+
+        private static MusicLover? ParseMusicLover(string line, HashSet<string> compositions)
+        {
+            MusicLover? lover = null;
+
+            foreach (string composition in line.Split(";; "))
+            {
+                if (composition.Length == 0)
+                {
+                    WriteError("Элемент пропущен: название композиции не может быть пустым.");
+                    return null;
+                }
+                else if (!compositions.Contains(composition))
+                {
+                    WriteError($"Элемент пропущен: композиция '{composition}' не существует.");
+                    return null;
+                }
+                else
+                {
+                    if (lover == null)
+                        lover = new MusicLover();
+                    
+                    lover.Add(composition);
+                }
+            }
+
+            return lover;
+        }
+
+        private static void WriteError(string message)
+        {
+            ConsoleColor tmp = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ForegroundColor = tmp;
         }
     }
 }
