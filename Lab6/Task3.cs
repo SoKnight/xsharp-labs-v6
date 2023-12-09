@@ -61,8 +61,9 @@ namespace Lab6
 
             Toy[] toyz = new Toy[]
             {
-                new Toy("test", 100),
-                new Toy("test2", 50, 2, 5)
+                new Toy("LEGO Bugatti Bolide", 10149),
+                new Toy("Star Wars Йода Animatronic", 6799, 3, 6),
+                new Toy("LEGO Technic Ferrari 488 GTE", 13299, 18, null)
             };
 
             Console.WriteLine("Список игрушек:");
