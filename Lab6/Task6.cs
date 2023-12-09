@@ -87,6 +87,10 @@ namespace Lab6
 
                 reader.Close();
                 writer.Close();
+
+                Console.WriteLine();
+                Console.WriteLine("Файл с результатами сохранён по пути:\n" + Path.GetFullPath(OUTPUT_FILE_NAME));
+                Console.WriteLine();
                 return true;
             }
             catch (Exception ex)

@@ -72,7 +72,7 @@ namespace Lab6
 
                     foreach (string arg in line.Split(' '))
                     {
-                        if (arg.Length != 0 && int.TryParse(arg, out number) && number % k == 0)
+                        if (arg.Length != 0 && int.TryParse(arg, out number) && number != 0 && number % k == 0)
                         {
                             if (mult == 0)
                                 mult = 1;
