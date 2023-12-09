@@ -32,3 +32,4 @@
   - [Задача 2.](Lab7/Task2.cs) Использование `LinkedList`.
   - [Задача 3.](Lab7/Task3.cs) Использование `HashSet`.
   - [Задача 4.](Lab7/Task4.cs) Использование `HashSet` + чтение из текстового файла.
+  - [Задача 5.](Lab7/Task5.cs) Использование `Dictionary` или `SortedList`.
