@@ -38,28 +38,6 @@ namespace Lab7
     {
         private static readonly string FILE_NAME = "task5_participants.txt";
 
-        public class Participant
-        {
-            public string FirstName { init; get; }
-            public string LastName { init; get; }
-            public int Score { init; get; }
-
-            public Participant(string firstName, string lastName, int score)
-            {
-                this.FirstName = firstName;
-                this.LastName = lastName;
-                this.Score = score;
-            }
-        }
-
-        public class ReversedIntComparer : IComparer<int>
-        {
-            public int Compare(int x, int y)
-            {
-                return y.CompareTo(x);
-            }
-        }
-
         public static void Run()
         {
             // --- ввод данных ---
