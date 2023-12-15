@@ -28,8 +28,8 @@
   - [Задача 5.](https://github.com/SoKnight/xsharp-labs-v6/blob/623e2b54d675fbf4be1b09ac2e5ed65e2a397b64/Lab6/Program.cs#L337) Текстовые файлы: по несколько чисел в строке.
   - [Задача 6.](https://github.com/SoKnight/xsharp-labs-v6/blob/623e2b54d675fbf4be1b09ac2e5ed65e2a397b64/Lab6/Program.cs#L407) Текстовые файлы: перезапись строк с условием.
 - Лабораторная C# [№7](Lab7):
-  - [Задача 1.](Lab7/Task1.cs) Использование `List`.
-  - [Задача 2.](Lab7/Task2.cs) Использование `LinkedList`.
-  - [Задача 3.](Lab7/Task3.cs) Использование `HashSet`.
-  - [Задача 4.](Lab7/Task4.cs) Использование `HashSet` + чтение из текстового файла.
-  - [Задача 5.](Lab7/Task5.cs) Использование `Dictionary` или `SortedList`.
+  - [Задача 1.](https://github.com/SoKnight/xsharp-labs-v6/blob/e70eee322b28cd2c3f0c28a229766f57d5ebcbd2/Lab7/Program.cs#L36) Использование `List`.
+  - [Задача 2.](https://github.com/SoKnight/xsharp-labs-v6/blob/e70eee322b28cd2c3f0c28a229766f57d5ebcbd2/Lab7/Program.cs#L61) Использование `LinkedList`.
+  - [Задача 3.](https://github.com/SoKnight/xsharp-labs-v6/blob/e70eee322b28cd2c3f0c28a229766f57d5ebcbd2/Lab7/Program.cs#L95) Использование `HashSet`.
+  - [Задача 4.](https://github.com/SoKnight/xsharp-labs-v6/blob/e70eee322b28cd2c3f0c28a229766f57d5ebcbd2/Lab7/Program.cs#L152) Использование `HashSet` + чтение из файла.
+  - [Задача 5.](https://github.com/SoKnight/xsharp-labs-v6/blob/e70eee322b28cd2c3f0c28a229766f57d5ebcbd2/Lab7/Program.cs#L180) Использование `Dictionary` или `SortedList` + чтение из файла.
