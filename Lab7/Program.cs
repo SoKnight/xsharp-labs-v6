@@ -44,7 +44,6 @@ namespace Lab7
             Console.WriteLine();
 
             List<string> input = RequestStringsList("ИСХОДНЫЙ СПИСОК");
-            Console.WriteLine();
 
             // --- решение задачи ---
 
@@ -69,7 +68,6 @@ namespace Lab7
             Console.WriteLine();
 
             LinkedList<string> input = RequestStringsLinkedList("ИСХОДНЫЙ СПИСОК");
-            Console.WriteLine();
 
             string element = RequestString("Введите удаляемый элемент: ");
             Console.WriteLine();
