@@ -1,5 +1,6 @@
 ﻿namespace Lab6
 {
+    [Serializable]
     internal struct Toy
     {
         private string name;
