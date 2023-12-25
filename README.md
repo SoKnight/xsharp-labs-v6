@@ -33,3 +33,4 @@
   - [Задача 3.](https://github.com/SoKnight/xsharp-labs-v6/blob/e70eee322b28cd2c3f0c28a229766f57d5ebcbd2/Lab7/Program.cs#L95) Использование `HashSet`.
   - [Задача 4.](https://github.com/SoKnight/xsharp-labs-v6/blob/e70eee322b28cd2c3f0c28a229766f57d5ebcbd2/Lab7/Program.cs#L152) Использование `HashSet` + чтение из файла.
   - [Задача 5.](https://github.com/SoKnight/xsharp-labs-v6/blob/e70eee322b28cd2c3f0c28a229766f57d5ebcbd2/Lab7/Program.cs#L180) Использование `Dictionary` или `SortedList` + чтение из файла.
+- Приложение на WPF (C#): [здесь](WpfApp)
